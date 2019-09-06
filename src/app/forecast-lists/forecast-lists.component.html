@@ -1,1 +1,17 @@
-<p>forecast-lists works!</p>
+<div class="container">
+    <mat-card class="cart-items">
+        5 day forecast for - {{ forecast?.city?.name }}
+    </mat-card>
+    <div *ngFor="let f of forecast?.list">
+        <mat-card class="cart-items">
+            {{ f.dt * 1000 | date: 'EEEE, MMMM d, y, h:mm:ss a zzzz'}} : 
+            {{ f.weather[0].description }} - 
+            Min: {{ f.temp.min | number:'.0-0' }} - 
+            Max: {{ f.temp.max | number:'.0-0' }}
+            <img [src]="_weatherService.getWeatherIcon(f.weather[0].id)" class="cart-items-icon" >
+        </mat-card>
+    </div>
+    
+    <button mat-raised-button [routerLink]="['/']"> Go Back </button>
+</div>
+    
