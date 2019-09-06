@@ -1,2 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.full-width {
+    width: 100%
+}
+
+.cart-items {
+    position: relative;
+    margin: 20px 0px;
+    line-height: 30px;
+    &-delete-btn {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    &-img {
+        margin: 10px 0px;
+    }
+    &-icon {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 40px;
+    }
+}
