@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: "forecast/:locationId",
+    path: 'forecast/:zipcode',
     loadChildren: "src/app/forecast-lists/forecast-lists.module#ForecastListsModule"
   },
   {
