@@ -8,13 +8,18 @@ import { HomeComponent } from './home/home.component';
 import { ZipcodeComponent } from './zipcode/zipcode.component';
 import { WeatherConditionsComponent } from './weather-conditions/weather-conditions.component';
 import { MaterialModule } from './shared/material/material.module';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { LoaderService } from './shared/loader/loader.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderInterceptor } from './shared/loader/loader.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ZipcodeComponent,
-    WeatherConditionsComponent
+    WeatherConditionsComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,7 @@ import { MaterialModule } from './shared/material/material.module';
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
