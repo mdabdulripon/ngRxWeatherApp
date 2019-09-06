@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocationService } from '../services/location.service';
 
 @Component({
   selector: 'app-zipcode',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ZipcodeComponent implements OnInit {
 
-  constructor() { }
+    constructor(private _locationService: LocationService) { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
+
+	addLocation(event) {
+		this._locationService.addLocation(event);
+	}
 
 }
