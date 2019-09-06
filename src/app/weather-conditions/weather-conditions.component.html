@@ -1,1 +1,23 @@
-<p>weather-conditions works!</p>
+<div class="container">
+    <div *ngFor="let location  of getCurrentConditions()">
+        <mat-card class="cart-items">
+            <h3>{{ location.data.name }} ({{ location.zip }})</h3>
+            <h4>Current conditions: {{ location.data.weather[0].main }}</h4>
+            <h4>Temperatures today:</h4>
+            <p>
+                Current {{ location.data.main.temp | number:'.0-0' }}
+                - Max {{ location.data.main.temp_max | number:'.0-0' }}
+                - Min {{ location.data.main.temp_min | number:'.0-0' }}
+            </p>
+            <a (click)="locationService.removeLocation(location.zip)">
+                <i class="material-icons cart-items-delete-btn">delete_outline</i>
+            </a>
+            <div class="cart-items-img">
+                <img [src]="weatherService.getWeatherIcon(location.data.weather[0].id)">
+            </div>
+            <a mat-stroked-button color="primary" class="cart-items-forecast-btn" [routerLink]="['/forecast', location.zip]" >
+                Show 5-day forecast for {{location.data.name}}
+            </a>
+        </mat-card> 
+    </div>
+</div>
