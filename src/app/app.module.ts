@@ -10,7 +10,7 @@ import { WeatherConditionsComponent } from './weather-conditions/weather-conditi
 import { MaterialModule } from './shared/material/material.module';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { LoaderService } from './shared/loader/loader.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoaderInterceptor } from './shared/loader/loader.interceptor';
 
 @NgModule({
@@ -24,6 +24,7 @@ import { LoaderInterceptor } from './shared/loader/loader.interceptor';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MaterialModule,
     AppRoutingModule
   ],
